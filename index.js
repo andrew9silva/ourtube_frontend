@@ -9,9 +9,11 @@ function getVideos() {
     .then(response => response.json())
     .then(videos => {
         videos.data.forEach(video => {
+            const youTubeId = video.attributes.url.split('v=')[1]
+            console.log(youTubeId)
             const videoMarkup = `
             <div data-id=${video.id}>
-            <iframe width="736" height="414" src="https://www.youtube.com/embed/${video.attributes.youtube_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h3>${video.attributes.title}</h3>
             <p>${video.attributes.description}</p>
             </div>
