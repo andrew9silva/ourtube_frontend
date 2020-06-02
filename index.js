@@ -11,13 +11,11 @@ function getVideos() {
         videos.data.forEach(video => {
             const videoMarkup = `
             <div data-id=${video.id}>
-            <video
-            // src=${video.attributes.url}
-            // height="200" width="250"
+            <iframe width="736" height="414" src="https://www.youtube.com/embed/${video.attributes.youtube_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h3>${video.attributes.title}</h3>
             <p>${video.attributes.description}</p>
             </div>
-            <br>`
+            <br>`;
             document.querySelector('#video-container').innerHTML += videoMarkup
         })
     })
