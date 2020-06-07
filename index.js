@@ -35,5 +35,14 @@ function createFormHandler(e) {
 }
 
 function postFetch(title, decription, url) {
-    console.log();
+    fetch(videoUrl, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData 
+    })
+    .then(response => response.json())
+    .then(video => {
+        console.log(video);
+    })
+        
 }
