@@ -1,11 +1,14 @@
-const url = 'http://localhost:3000/api/v1/videos'
+const videoUrl = 'http://localhost:3000/api/v1/videos'
 
 document.addEventListener('DOMContentLoaded', () => {
     getVideos()
+
+    const createVideosForm = document.querySelector('#video-form-container')
+    createVideosForm.addEventListener("submit", (e) => createFormHandler(e))
 })
 
 function getVideos() {
-    fetch(url)
+    fetch(videoUrl)
     .then(response => response.json())
     .then(videos => {
         videos.data.forEach(video => {
@@ -21,4 +24,9 @@ function getVideos() {
             document.querySelector('#video-container').innerHTML += videoMarkup
         })
     })
+}
+
+function createFormHandler(e) {
+    e.preventDefault()
+    console.log(e);
 }
