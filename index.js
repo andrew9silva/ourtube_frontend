@@ -28,5 +28,12 @@ function getVideos() {
 
 function createFormHandler(e) {
     e.preventDefault()
-    console.log(e);
+    const titleInput = document.querySelector('#input-title').value
+    const descriptionInput = document.querySelector('#input-description').value
+    const urlInput = document.querySelector('#input-url').value
+    postFetch(titleInput, descriptionInput, urlInput)
+}
+
+function postFetch(title, decription, url) {
+    console.log();
 }
