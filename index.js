@@ -38,7 +38,7 @@ function postFetch(title, decription, url) {
     fetch(videoUrl, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(bodyData 
+        body: JSON.stringify(bodyData) 
     })
     .then(response => response.json())
     .then(video => {
