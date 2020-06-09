@@ -44,14 +44,13 @@ function postFetch(title, description, url) {
     })
     .then(response => response.json())
     .then(video => {
-        console.log(video);
-        const videoData = video.data
-        const youTubeId = video.attributes.url.split('v=')[1]
+        const videoData = video.data.attributes
+        const youTubeId = videoData.url.split('v=')[1]
         const videoMarkup = `
         <div data-id=${video.id}>
         <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h3>${videoData.attributes.title}</h3>
-        <p>${videoData.attributes.description}</p>
+        <h3>${videoData.title}</h3>
+        <p>${videoData.description}</p>
         </div>
         <br><br>`;
 
