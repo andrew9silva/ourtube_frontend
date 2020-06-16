@@ -19,6 +19,7 @@ function getVideos() {
             <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h3>${video.attributes.title}</h3>
             <p>${video.attributes.description}</p>
+            <p>${video.comments}</p>
             </div>
             <br>`;
             document.querySelector('#video-container').innerHTML += videoMarkup
@@ -44,8 +45,8 @@ function postFetch(title, description, url) {
     })
     .then(response => response.json())
     .then(video => {
-        const videoData = video.data.attributes
-        const youTubeId = videoData.url.split('v=')[1]
+        const videoData = video.attributes.url
+        const youTubeId = videoData.split('v=')[1]
         const videoMarkup = `
         <div data-id=${video.id}>
         <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
