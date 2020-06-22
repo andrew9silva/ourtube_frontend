@@ -16,8 +16,8 @@ function getVideos() {
             console.log(youTubeId)
             const videoMarkup = `
             <div data-id=${video.id}>
-            <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h3>${video.attributes.title}</h3>
+            <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>${video.attributes.description}</p>
             <p>${video.comments}</p>
             </div>
@@ -32,11 +32,12 @@ function createFormHandler(e) {
     const titleInput = document.querySelector('#input-title').value
     const descriptionInput = document.querySelector('#input-description').value
     const urlInput = document.querySelector('#input-url').value
-    postFetch(titleInput, descriptionInput, urlInput)
+    const userIdInput = document.querySelector('#input-user_id').value
+    postFetch(titleInput, descriptionInput, urlInput, userIdInput)
 }
 
-function postFetch(title, description, url) {
-    const bodyData = {title, description, url}
+function postFetch(title, description, url, user_id) {
+    const bodyData = {title, description, url, user_id}
 
     fetch(videoUrl, {
         method: "POST",
@@ -45,13 +46,16 @@ function postFetch(title, description, url) {
     })
     .then(response => response.json())
     .then(video => {
-        const videoData = video.attributes.url
+        //debugger
+        const videoData = video.url
         const youTubeId = videoData.split('v=')[1]
         const videoMarkup = `
         <div data-id=${video.id}>
+        <h3>${video.title}</h3>
         <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h3>${videoData.title}</h3>
-        <p>${videoData.description}</p>
+        <p>${video.description}</p>
+        <p>${video.user_id}</p>
+        
         </div>
         <br><br>`;
 
