@@ -36,7 +36,7 @@ function getVideos() {
             const videoMarkup = `
             <div data-id=${video.id}>
                 <h3>${video.attributes.title}</h3>
-                <iframe width="736" height="414" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="500" height="250" src="https://www.youtube.com/embed/${youTubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <p>${video.attributes.description}</p>
                 <p>${commentContent}</p>
             </div>

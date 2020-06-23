@@ -4,6 +4,17 @@
         <style>
             h1 {color:red;}
             li {display:inline;}
+            div#video-container {
+                border: 5px solid black;
+                padding: 5px;
+                display: grid;
+                }
+            div#video-form-container {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 0;
+                background-color: wheat;
+            }    
         </style>
     </head>
     <script type="text/javascript" src="index.js"></script>
@@ -24,7 +35,7 @@
             <br><br>
             <input id='input-url' type="text" name="video" value="" placeholder="Enter your video URL..." class="input-text">
             <br><br>
-            <input id='input-user_id' type='number' name='user_id'>
+            
             <br><br>
             <input id= 'create-button' type="submit" name="submit" value="Add New Video" class="submit">
         </form>
