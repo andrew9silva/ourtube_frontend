@@ -1,23 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            h1 {color:red;}
-            li {display:inline;}
-            div#video-container {
-                border: 5px solid black;
-                padding: 5px;
-                display: grid;
-                }
-            div#video-form-container {
-                position: -webkit-sticky;
-                position: sticky;
-                top: 0;
-                background-color: wheat;
-            }    
-        </style>
+        <script src="https://kit.fontawesome.com/cfe7c680ac.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="index.js"></script>
+        <link rel="stylesheet" href="main.css">
+ 
     </head>
-    <script type="text/javascript" src="index.js"></script>
     <nav>
         <li>Log In</li>
         <li>Log Out</li>
@@ -25,6 +13,8 @@
         <li>Videos</li>
     </nav>
     <h1>OurTube</h1>
+    <i id="btn-yes" class="fas fa-thumbs-up"></i><br>
+    <i id="btn-no" class="fas fa-thumbs-down"></i>
 
     <div id="video-form-container">
         <form>
@@ -41,6 +31,7 @@
         </form>
     </div><br><br>
     <div id="video-container">
+        
 
     </div>
 </html>

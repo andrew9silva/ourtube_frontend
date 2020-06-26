@@ -1,0 +1,32 @@
+h1 {color:red;}
+
+li {display:inline;}
+
+div#video-container {
+    border: 5px solid black;
+    padding: 5px;
+    display: grid;
+}
+
+div#video-form-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+i#btn-yes {
+    color: green;
+}
+
+i#btn-yes:hover {
+    color: darkblue;
+}
+
+i#btn-no {
+    color: red;
+}
+
+i#btn-no:hover {
+    color: darkblue;
+}
