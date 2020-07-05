@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createVideosForm = document.querySelector('#video-form-container')
     createVideosForm.addEventListener("submit", (e) => createFormHandler(e))
-})
+});
+
 
 function getVideos() {
     fetch(videoUrl)
@@ -71,6 +72,10 @@ function postFetch(title, description, url, user_id) {
         //debugger
         const videoData = video.url
         const youTubeId = videoData.split('v=')[1]
+        render(video);
+    })
+
+    function render(video) {
         const videoMarkup = `
         <div data-id=${video.id}>
         <h3>${video.title}</h3>
@@ -82,6 +87,6 @@ function postFetch(title, description, url, user_id) {
         <br><br>`;
 
         document.querySelector('#video-container').innerHTML += videoMarkup;
-    })
+    }
         
 }
